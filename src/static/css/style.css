@@ -1,0 +1,94 @@
+*
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #92e1e9;
+}
+
+h1
+{
+    color: #faf364;
+    text-align: center;
+    font-size: 2em;
+}
+
+h3, p
+{
+    color: #135b5c;
+    text-align: justify;
+}
+
+strong
+{
+    font-style: bold;
+}
+
+#head_container
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.title
+{
+    flex: 2;
+}
+
+.img
+{
+    width: 10%;
+    height: 10%;
+}
+
+#discussion_container
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.discussion
+{
+    height: 500px;
+    background: #c4ecac;
+    border: 3px solid #449494;
+    border-radius: 10px;
+    margin: 10px 10px 20px 20px;
+    flex: 1 1 95em;
+}
+
+.description
+{
+    margin: 10px 20px 20px 10px;
+    flex: 2 2 5em;
+}
+
+.source
+{
+    font-style: italic;
+    font-size: 0.8em;
+}
+
+.user_input
+{
+    margin: 10px 20px 20px 20px;
+}
+
+#userQuestion
+{
+    width: 80%;
+}
+
+.footer
+{
+    text-align: center;
+    font-size: 0.80em;
+}
+
+/* penser à supprimer après le cours */
+
+.userInput
+{
+    width: 250px;
+}

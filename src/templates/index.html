@@ -1,7 +1,39 @@
-<html>
-    <head>
-        <title>The Moominpappa Bot</title>
-    </head>
+{% extends "base.html" %}
+
+{% block content %}
+
     <body>
+        
+        <div id="discussion_container">
+            <div class="discussion">
+            </div>
+
+            <div class="description">
+                <h3>Le personnage :</h3>
+                <p>
+                    Moominpappa se considère comme très compétent, expert dans de nombreux domaines et <strong>il est toujours prêt à offrir ses conseils</strong> aux autres. En plus de cela, il est aussi curieux et prêt à essayer de nouvelles choses : une nouvelle aventure est toujours la bienvenue !!!
+                </p>
+                <p>
+                    <span class="source">
+                    Source: <a href="https://www.moomin.com/en/characters/moominpappa/" title="En savoir plus" target="blank">www.moomin.com</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <div class="user_input">
+            <fieldset>
+                <legend>Questionner Moominpappa sur ma prochaine aventure !</legend>
+                    <form>
+                        <p>
+                            <label for="userQuestion"><strong>Dis-moi Moominpappa...</strong></label><br /><br />
+                            <textarea name="userQuestion" id="userQuestion" autofocus required>Où se trouve le parc moomin world ?</textarea>
+                            <input type="submit" value="Envoyer" />
+                        </p>
+                    </form>
+            </fieldset>
+        </div>  
+
     </body>
-</html>
+    
+{% endblock %}
