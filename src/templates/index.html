@@ -2,38 +2,25 @@
 
 {% block content %}
 
-    <body>
-        
-        <div id="discussion_container">
+        <section>
             <div class="discussion">
             </div>
 
-            <div class="description">
-                <h3>Le personnage :</h3>
-                <p>
-                    Moominpappa se considère comme très compétent, expert dans de nombreux domaines et <strong>il est toujours prêt à offrir ses conseils</strong> aux autres. En plus de cela, il est aussi curieux et prêt à essayer de nouvelles choses : une nouvelle aventure est toujours la bienvenue !!!
-                </p>
-                <p>
-                    <span class="source">
-                    Source: <a href="https://www.moomin.com/en/characters/moominpappa/" title="En savoir plus" target="blank">www.moomin.com</a>
-                    </span>
-                </p>
+            <div class="user_input">
+                <fieldset>
+                    <legend>Questionner Moominpappa sur ma prochaine aventure !</legend>
+
+                        <form method="post" action="/index/">
+                            <p>
+                                <label for="user_question"><strong>Dis-moi Moominpappa...</strong></label><br /><br />
+                                <textarea name="user_question" id="user_question" class="user_question" placeholder="Où se trouve le parc moomin world ?" autofocus required></textarea>
+                                <input type="submit" value="Envoyer" />
+                                <br /><br />
+                                La question est: " {{ question }} ".
+                            </p>
+                        </form>
+                </fieldset>
             </div>
-        </div>
-
-        <div class="user_input">
-            <fieldset>
-                <legend>Questionner Moominpappa sur ma prochaine aventure !</legend>
-                    <form>
-                        <p>
-                            <label for="userQuestion"><strong>Dis-moi Moominpappa...</strong></label><br /><br />
-                            <textarea name="userQuestion" id="userQuestion" autofocus required>Où se trouve le parc moomin world ?</textarea>
-                            <input type="submit" value="Envoyer" />
-                        </p>
-                    </form>
-            </fieldset>
-        </div>  
-
-    </body>
+        </section>
     
 {% endblock %}

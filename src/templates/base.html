@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/static/css/style.css" />
-        <title>The Moominpappa Bot</title>
-        <div id ="head_container">
-            <div class="title"><h1>The Moominpappa Bot</h1></div>
-            <div class="img"><img src="/static/img/moominpappa.svg" alt="Moominpappa illustation" /></div>
+    
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="/static/css/style.css" />
+            <title>The Moominpappa Bot</title>
+        </head>
+
+    <body>
+        <div id="main_wrapper">
+
+            <header id ="header_container">
+                <div class="title"><h1>The Moominpappa Bot</h1></div>
+                <div class="img"><img src="/static/img/moominpappa.svg" alt="Moominpappa illustation" /></div>
+            </header>
+
+            {% block content %}{% endblock %}
+
+            <footer>
+                <p>-Réalisation: Camille CLARRET-<br /><br />
+                <a href="http://www.camille-clarret.com/" title="site web" target="blank">Site web</a><br /><br />
+                <em class="source">Source: <a href="https://www.moomin.com/en/characters/moominpappa/" title="En savoir plus" target="blank">www.moomin.com</a></em></p>
+            </footer>
+
         </div>
-    </head>
-
-    {% block content %}{% endblock %}
-
-    <footer>
-        <p class="footer">-Réalisation: Camille CLARRET-</p>
-        <p class="footer"><a href="http://www.camille-clarret.com/" title="site web" target="blank">Site web</a></p>
-    </footer>
+    </body>
 </html>
