@@ -6,22 +6,51 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="/static/css/style.css" />
             <title>The Moominpappa Bot</title>
+
+            <!-- favicon -->
+            <link rel="shortcut icon" href="/static/img/favicon/favicon.ico" type="image/x-icon">
+            <link rel="icon" href="/static/img/favicon/favicon.png" type="image/png">
+            <link rel="icon" sizes="32x32" href="/static/img/favicon/favicon-32.png" type="image/png">
+            <link rel="icon" sizes="64x64" href="/static/img/favicon/favicon-64.png" type="image/png">
+            <link rel="icon" sizes="96x96" href="/static/img/favicon/favicon-96.png" type="image/png">
+            <link rel="icon" sizes="196x196" href="/static/img/favicon/favicon-196.png" type="image/png">
+            <link rel="apple-touch-icon" sizes="152x152" href="/static/img/favicon/apple-touch-icon.png">
+            <link rel="apple-touch-icon" sizes="60x60" href="/static/img/favicon/apple-touch-icon-60x60.png">
+            <link rel="apple-touch-icon" sizes="76x76" href="/static/img/favicon/apple-touch-icon-76x76.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="/static/img/favicon/apple-touch-icon-114x114.png">
+            <link rel="apple-touch-icon" sizes="120x120" href="/static/img/favicon/apple-touch-icon-120x120.png">
+            <link rel="apple-touch-icon" sizes="144x144" href="/static/img/favicon/apple-touch-icon-144x144.png">
+            <meta name="msapplication-TileImage" content="favicon-144.png">
+            <meta name="msapplication-TileColor" content="#FFFFFF"> 
         </head>
 
     <body>
         <div id="main_wrapper">
 
-            <header id ="header_container">
-                <div class="title"><h1>The Moominpappa Bot</h1></div>
-                <div class="img"><img src="/static/img/moominpappa.svg" alt="Moominpappa illustation" /></div>
+            <header>
+                <nav>
+                    <ul>
+                        <li><a class="link" href="#" target="_blank">Accueil</a></li>
+                        <li><a class="link" href="https://medium.com/@camille.clarret" target="_blank">Mon parcours</a></li>
+                        <li><a class="link" href="https://www.moomin.com/en/" target="_blank">Source: moomin.com</a></li>
+                    </ul>
+                </nav>
+
+                <div id ="header_container">
+                    <div class="title"><h1>The Moominpappa Bot</h1></div>
+                    <div class="img"><img src="/static/img/moominpappa.svg" alt="Moominpappa illustation" /></div>
+                </div>
             </header>
 
             {% block content %}{% endblock %}
 
             <footer>
-                <p>-Réalisation: Camille CLARRET-<br /><br />
-                <a href="http://www.camille-clarret.com/" title="site web" target="blank">Site web</a><br /><br />
-                <em class="source">Source: <a href="https://www.moomin.com/en/characters/moominpappa/" title="En savoir plus" target="blank">www.moomin.com</a></em></p>
+                <p>Réalisation: <a href="http://www.camille-clarret.com/" target="blank">Camille Clarret</a></p>
+                <div id="social_media">
+                    <a href="https://www.linkedin.com/in/camille-clarret-6044548b/" target="_blank"><img src="/static/img/social/colored/png/031-linkedin.png" alt="Linkedin" title="Linkedin" /></a>
+                    <a href="https://github.com/CamClrt" target="_blank"><img src="/static/img/social/colored/png/039-github.png" alt="Github" title="Github" /></a>
+                    <a href="https://twitter.com/camille_clarret" target="_blank"><img src="/static/img/social/colored/png/014-twitter.png" alt="Twitter" title="Twitter" /></a>
+                </div>
             </footer>
 
         </div>
