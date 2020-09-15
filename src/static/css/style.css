@@ -12,9 +12,18 @@
     margin: auto;
 }
 
+
+@media all and (max-width: 1024px)
+{
+    #main_wrappers
+    {
+        margin: auto;
+    }
+}
+
 /* Header */
 
-/* -- nav -- */
+/* first part : navbar */
 
 nav ul
 {
@@ -30,7 +39,8 @@ nav a
 
 li
 {
-    margin-right: 20px;
+    padding-right: 20px;
+    color: #135b5c;
 }
 
 .link
@@ -43,7 +53,21 @@ li
     color: #a2b45e;
 }
 
-/* -- subheader -- */
+@media all and (max-width: 1024px)
+{
+    nav
+    {
+        margin-left: 25px;
+    }
+
+    nav ul
+    {
+        display: inline;
+        list-style-type: disc;
+    }
+}
+
+/* first part : title + image */
 
 #header_container
 {
@@ -52,11 +76,18 @@ li
     align-items: center;
 }
 
-h1
+h3
 {
     color: #135b5c;
     text-align: center;
-    font-size: 1.5em;
+}
+
+@media all and (max-width: 1024px)
+{
+    h3
+    {
+        font-size: 0.75em;
+    }
 }
 
 .title
@@ -67,8 +98,17 @@ h1
 
 .img
 {
-    width: 10%;
-    height: 10%;
+    width: 12.5%;
+    height: 12.5%;
+}
+
+@media all and (max-width: 1024px)
+{
+    .img
+    {
+        width: 20%;
+        height: 20%;
+    }
 }
 
 /* Body */
@@ -76,7 +116,7 @@ h1
 .discussion
 {
     height: 500px;
-    min-height: 250px;
+    min-height: 300px;
     background: #92e1e9;
     border: 3px solid  #135b5c;
     border-radius: 10px;
@@ -90,8 +130,17 @@ h1
 
 .user_question
 {
-    min-width: 500px;
     width: 750px;
+    height: 75px;
+}
+
+@media all and (max-width: 1024px)
+{
+    .user_question
+    {
+        width: 300px;
+        height: 50px;
+    }
 }
 
 /* Footer */

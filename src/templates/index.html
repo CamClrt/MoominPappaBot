@@ -2,25 +2,29 @@
 
 {% block content %}
 
-        <section>
-            <div class="discussion">
-            </div>
+<!DOCTYPE html> <!-- est-ce que je dois aussi le mettre là ? -->
+<html lang="fr">
+<head></head>
 
-            <div class="user_input">
-                <fieldset>
-                    <legend>Questionner Moominpappa sur ma prochaine aventure !</legend>
+<section>
+    <div class="discussion">
+    </div>
 
-                        <form method="post" action="/index/">
-                            <p>
-                                <label for="user_question"><strong>Dis-moi Moominpappa...</strong></label><br /><br />
-                                <textarea name="user_question" id="user_question" class="user_question" placeholder="Où se trouve le parc moomin world ?" autofocus required></textarea>
-                                <input type="submit" value="Envoyer" />
-                                <br /><br />
-                                La question est: " {{ question }} ".
-                            </p>
-                        </form>
-                </fieldset>
-            </div>
-        </section>
+    <div class="user_input">
+        <fieldset>
+            <legend>Questionner Moominpappa sur ma prochaine aventure !</legend>
+
+                <form method="post" action="/index/">
+                    <p>
+                        <label for="user_question"><strong>Dis-moi Moominpappa...</strong></label><br /><br />
+                        <textarea name="user_question" id="user_question" class="user_question" placeholder="Où se trouve le parc moomin world ?" autofocus required></textarea>
+                        <input type="submit" value="Envoyer" />
+                        <br /><br />
+                        La question est: " {{ question }} ".
+                    </p>
+                </form>
+        </fieldset>
+    </div>
+</section>
     
 {% endblock %}
