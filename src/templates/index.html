@@ -2,12 +2,10 @@
 
 {% block content %}
 
-<!DOCTYPE html> <!-- est-ce que je dois aussi le mettre là ? -->
-<html lang="fr">
-<head></head>
-
 <section>
     <div class="discussion">
+        <div ></div>
+        <div></div>
     </div>
 
     <div class="user_input">
@@ -16,11 +14,11 @@
 
                 <form method="post" action="/index/">
                     <p>
-                        <label for="user_question"><strong>Dis-moi Moominpappa...</strong></label><br /><br />
-                        <textarea name="user_question" id="user_question" class="user_question" placeholder="Où se trouve le parc moomin world ?" autofocus required></textarea>
-                        <input type="submit" value="Envoyer" />
-                        <br /><br />
-                        La question est: " {{ question }} ".
+                        <label for="user_question"><strong>Dis-moi Moominpappa...</strong></label>
+                        <div id="user_input_container">
+                            <textarea name="user_question" type="text" id="user_question" class="user_question" placeholder="Où se trouve le parc moomin world ?" autofocus required></textarea>
+                            <img ID="button" src="/static/img/button.png" alt="boutton" />
+                        </div>
                     </p>
                 </form>
         </fieldset>
