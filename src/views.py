@@ -13,3 +13,4 @@ def ask_question():
     if request.method == 'POST':
         question = (request.json).get('user_question')
     return {"response": question}
+    
