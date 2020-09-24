@@ -3,7 +3,7 @@
 // display a new message at screen
 export const addDiscussionElement = (discussionText, userType) => {
     const newDiscussionElement = document.createElement("div");
-    newDiscussionElement.innerHTML = "<p>" + discussionText + "</p>";
+    newDiscussionElement.innerHTML = "<p>".concat(discussionText, "</p>");
     newDiscussionElement.classList.add(userType);
     let discussionElement = document.getElementById("discussion");
     discussionElement.appendChild(newDiscussionElement);
