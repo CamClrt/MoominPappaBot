@@ -3,8 +3,6 @@ import {Bot} from './bot.js';
 
 // ---- main script ---- //
 
-
-
 let bot = new Bot();
 let user = new User();
 
