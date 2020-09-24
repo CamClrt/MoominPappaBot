@@ -12,5 +12,8 @@ def index():
 def ask_question():
     if request.method == 'POST':
         question = (request.json).get('user_question')
-    return {"response": question}
-    
+        return {"response": question}
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('page_not_found.html'), 404
