@@ -2,11 +2,7 @@
     This module represente the parser
 """
 
-import spacy
 from src.place import Place
-
-# Load French tokenizer, tagger, parser, NER and word vectors
-nlp = spacy.load("fr_core_news_sm")
 
 
 class Parser:
@@ -27,4 +23,11 @@ class Parser:
             if entity.label_ in ["LOC", "ORG", "MISC"]:  # cf Wikipedia scheme: https://spacy.io/api/annotation
                 place = Place(entity.text, entity.label_)
                 entities_list.append(place)
+
+                #TODO: contacter l'API Google Map & compléter l'objet place
+                #TODO: contacter l'API Wikipédia & compléter l'objet place
+
         return entities_list
+    
+    # TODO: retirer les stop words
+    

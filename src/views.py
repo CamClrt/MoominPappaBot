@@ -21,12 +21,13 @@ def ask_question():
             if len(place_list) == 1:
                 print(place_list)
                 place = place_list[0]
-
-                #TODO: contacter l'API Google Map & compléter l'objet place/réponse
-                #TODO: contacter l'API Wikipédia & compléter l'objet place/réponse
-                #TODO: formater la réponse & la renvoyer
-
-                return {"response": place.name}
+                return {
+                    "response": place.name,
+                    "latitude": place.latitude,
+                    "longitude": place.longitude,
+                    "address": place.address,
+                    "description": place.description,
+                    }
             elif len(place_list) > 1:
                 return {"response": "too many places"}
             else:
