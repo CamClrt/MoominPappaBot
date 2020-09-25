@@ -14,14 +14,23 @@ def index():
 @app.route('/ask_question/', methods=['POST'])
 def ask_question():
     if request.method == 'POST':
-        question = ((request.json).get('user_question')).capitalize()
+        question = ((request.json).get('user_question'))
 
         if parser.check_question_mark(question):
-            #TODO: parser la question & recevoir la substance
-            #TODO: contacter l'API Google Map & former la réponse
-            #TODO: contacter l'API Google Map & former la réponse
-            #TODO: formater la réponse & la renvoyer
-            return {"response": question}
+            place_list = parser.process_question(question)
+            if len(place_list) == 1:
+                print(place_list)
+                place = place_list[0]
+
+                #TODO: contacter l'API Google Map & compléter l'objet place/réponse
+                #TODO: contacter l'API Wikipédia & compléter l'objet place/réponse
+                #TODO: formater la réponse & la renvoyer
+
+                return {"response": place.name}
+            elif len(place_list) > 1:
+                return {"response": "too many places"}
+            else:
+                return {"response": "nothing"}
         else:
             return {"response": "not a question"}
 

@@ -18,5 +18,5 @@ userInputElement.addEventListener('change', function(event) {
         buttonElement.addEventListener("click", function(){
             user.summitQuestionToBot(question, bot);
             question = "";
-        });
-});
+        })
+})

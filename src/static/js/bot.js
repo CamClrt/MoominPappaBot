@@ -18,19 +18,27 @@ export class Bot {
         let botResponse = send(question, "/ask_question/");
         if (botResponse.response == "not a question"){
             this.notAQuestion();
+        } else if (botResponse.response == "too many places"){
+                this.tooMuchPlacesToSearch();
+        } else if (botResponse.response == "nothing"){
+            this.noAnswer();
         } else {
             addDiscussionElement(botResponse.response, this.type);
         }
     } 
 
     notAQuestion() {
-        const notAQuestionMessage = "Hum... Je ne suis pas sur que cette phrase soit réellement une question... Peux-tu préciser ta pensée ?";
-        addDiscussionElement(notAQuestionMessage, this.type);
+        const response = "Hum... Je ne suis pas sur que cette phrase soit réellement une question... Peux-tu préciser ta pensée ?";
+        addDiscussionElement(response, this.type);
     }  
 
     noAnswer() {
-        const noAnswerMessage = "Hum ! Il me reste tant à découvrir... Je suis désolé, je ne connais pas ce lieu";
-        addDiscussionElement(noAnswerMessage, this.type);
+        const response = "Hum ! Il me reste tant à découvrir... Je suis désolé, je ne trouve pas ce lieu. N'hésites pas à vérifier son orthographe et s'il porte des majuscules !";
+        addDiscussionElement(response, this.type);
     }
 
+    tooMuchPlacesToSearch() {
+        const response = "Ne soit pas si impatient, je ne peux te renseigner que sur un seul lieu à la fois !";
+        addDiscussionElement(response, this.type);
+    }
 }
