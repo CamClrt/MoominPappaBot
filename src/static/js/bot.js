@@ -18,8 +18,6 @@ export class Bot {
         let botResponse = send(question, "/ask_question/");
         if (botResponse.response == "not a question"){
             this.notAQuestion();
-        } else if (botResponse.response == "too many places"){
-                this.tooMuchPlacesToSearch();
         } else if (botResponse.response == "nothing"){
             this.noAnswer();
         } else {
@@ -28,17 +26,12 @@ export class Bot {
     } 
 
     notAQuestion() {
-        const response = "Hum... Je ne suis pas sur que cette phrase soit réellement une question... Peux-tu préciser ta pensée ?";
+        const response = "Hum... Je ne suis pas sur que cette phrase soit réellement une question... Peux-tu reformuler sous forme de question ?";
         addDiscussionElement(response, this.type);
     }  
 
     noAnswer() {
-        const response = "Hum ! Il me reste tant à découvrir... Je suis désolé, je ne trouve pas ce lieu. N'hésites pas à vérifier son orthographe et s'il porte des majuscules !";
-        addDiscussionElement(response, this.type);
-    }
-
-    tooMuchPlacesToSearch() {
-        const response = "Ne soit pas si impatient, je ne peux te renseigner que sur un seul lieu à la fois !";
+        const response = "Hum ! Il me reste tant de chose à découvrir... Je suis désolé, je ne connais pas ce lieu. N'hésites pas à vérifier son orthographe et s'il porte des majuscules !";
         addDiscussionElement(response, this.type);
     }
 }

@@ -15,19 +15,16 @@ class Parser:
         else:
             return True
 
-    def process_question(self, sentence):
+    def process_question(self, sentence): 
         """Find named entities and filter them"""
-        entities_list = []
-        parsed_sentence = nlp(sentence)
-        for entity in parsed_sentence.ents:
-            if entity.label_ in ["LOC", "ORG", "MISC"]:  # cf Wikipedia scheme: https://spacy.io/api/annotation
-                place = Place(entity.text, entity.label_)
-                entities_list.append(place)
+        #TODO: retirer les stop words, normaliser minuscules/majuscules, éliminer accents, isoler le lieu...
+        #placeObject = Place(sentence)
+        #TODO: contacter l'API Google Map & compléter l'objet place
+        #TODO: contacter l'API Wikipédia & compléter l'objet place
 
-                #TODO: contacter l'API Google Map & compléter l'objet place
-                #TODO: contacter l'API Wikipédia & compléter l'objet place
-
-        return entities_list
+        # if sentence contains a place > return placeObject
+        # else > return None
+        return None
+        
     
-    # TODO: retirer les stop words
     

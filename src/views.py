@@ -15,23 +15,20 @@ def index():
 def ask_question():
     if request.method == 'POST':
         question = ((request.json).get('user_question'))
-
+        parser = Parser()
         if parser.check_question_mark(question):
-            place_list = parser.process_question(question)
-            if len(place_list) == 1:
-                print(place_list)
-                place = place_list[0]
-                return {
-                    "response": place.name,
-                    "latitude": place.latitude,
-                    "longitude": place.longitude,
-                    "address": place.address,
-                    "description": place.description,
-                    }
-            elif len(place_list) > 1:
-                return {"response": "too many places"}
-            else:
+            placeObject = parser.process_question(question)
+            print(placeObject)
+            if placeObject == None:
                 return {"response": "nothing"}
+            else:
+                return {
+                    "response": placeObject.name,
+                    "latitude": placeObject.latitude,
+                    "longitude": placeObject.longitude,
+                    "address": placeObject.address,
+                    "description": placeObject.description,
+                    }
         else:
             return {"response": "not a question"}
 

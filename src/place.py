@@ -6,7 +6,7 @@
 class Place:
     """Respresents a place """
 
-    def __init__(self, name, type_description):
+    def __init__(self, name, latitude, longitude, address, description):
         self.name = name
         self.latitude = ""
         self.longitude = ""
@@ -14,4 +14,4 @@ class Place:
         self.description = ""
 
     def __repr__(self):
-        return f"Name: {self.name}"
+        return f"{self.name}, {self.latitude} lat., {self.longitude} long."
