@@ -7,7 +7,7 @@ let bot = new Bot();
 let user = new User();
 
 // greet user
-let message = "Bonjour à toi aventurier ! De quel lieu souhaites-tu que je te parle ?";
+let message = "Bonjour à toi aventurier ! Sur quel lieu souhaites-tu m'interroger ?";
 bot.greetUser(message);
 
 // user ask a question

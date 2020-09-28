@@ -24,7 +24,10 @@ class Parser:
 
         # if sentence contains a place > return placeObject
         # else > return None
-        return None
+
+        place_object = Place("Uluru", -25.344, 131.036)
+
+        return place_object
         
     
     

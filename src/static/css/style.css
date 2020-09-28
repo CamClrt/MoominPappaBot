@@ -145,6 +145,12 @@ h3
     margin: 5px 5px 5px 5px;
 }
 
+#map
+{
+    width: 48%;
+    height: 125px;
+}
+
 .user
 {
     align-self: flex-end;

@@ -1,6 +1,7 @@
-from flask import render_template, request, redirect, url_for, jsonify
+from flask import render_template, request, redirect, url_for, jsonify, json
 from src import app
 from src.parser import Parser
+from config import GOOGLE_API_KEY
 
 
 app.config.from_object('config')
@@ -14,23 +15,26 @@ def index():
 @app.route('/ask_question/', methods=['POST'])
 def ask_question():
     if request.method == 'POST':
-        question = ((request.json).get('user_question'))
-        parser = Parser()
-        if parser.check_question_mark(question):
-            placeObject = parser.process_question(question)
-            print(placeObject)
-            if placeObject == None:
-                return {"response": "nothing"}
+        if request.is_json:
+            json_question = request.get_json()
+            question = json_question["user_question"]
+
+            parser = Parser()
+            if parser.check_question_mark(question):
+                place_object = parser.process_question(question)
+
+                if place_object == None:
+                    return {"response": "nothing"}
+                else:
+                    return {
+                        "response": place_object.name,
+                        "latitude": place_object.latitude,
+                        "longitude": place_object.longitude,
+                        "description": "vide", #TODO: à remplacer par place_object.description
+                        "api_url": f"https://maps.googleapis.com/maps/api/js?key={GOOGLE_API_KEY}=initMap"
+                        }
             else:
-                return {
-                    "response": placeObject.name,
-                    "latitude": placeObject.latitude,
-                    "longitude": placeObject.longitude,
-                    "address": placeObject.address,
-                    "description": placeObject.description,
-                    }
-        else:
-            return {"response": "not a question"}
+                return {"response": "not a question"}
 
 @app.errorhandler(404)
 def page_not_found(error):
