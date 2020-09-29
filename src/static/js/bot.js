@@ -26,8 +26,7 @@ export class Bot {
             this.giveTheNamePlace(botResponse.response)
             // add short description
             this.giveTheDescriptionPlace(botResponse.description)
-            // contact Google Map API
-            this.contactWithGoogleMapApi(botResponse.api_url) // >>> NE FONCTIONNE PAS <<<
+            // add map to locate the place
             this.giveMapPlace(botResponse.latitude, botResponse.longitude)
         }
     } 
@@ -40,11 +39,6 @@ export class Bot {
     giveTheDescriptionPlace(description) {
         const message = "Selon mes sources, voici ce que je peux t'en dire: "
         addDiscussionElement(message.concat(description), this.type);
-    }
-
-    contactWithGoogleMapApi(url) {
-        const scriptElement = document.getElementById("GoogleMapApi");
-        scriptElement.setAttribute("src", url);
     }
 
     giveMapPlace(latitude, longitude) {

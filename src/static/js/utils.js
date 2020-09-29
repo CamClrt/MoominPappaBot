@@ -30,7 +30,6 @@ export const send = (input, url) => {
 // Initialize and add the map
 export const initMap = (placeLatitude, placeLongitude) => {
     var place = {lat: placeLatitude, lng: placeLongitude};
-    var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 4, center: place});
+    var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: place});
     var marker = new google.maps.Marker({position: place, map: map});
 }

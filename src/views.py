@@ -1,7 +1,6 @@
 from flask import render_template, request, redirect, url_for, jsonify, json
 from src import app
 from src.parser import Parser
-from config import GOOGLE_API_KEY
 
 
 app.config.from_object('config')
@@ -31,7 +30,6 @@ def ask_question():
                         "latitude": place_object.latitude,
                         "longitude": place_object.longitude,
                         "description": "vide", #TODO: à remplacer par place_object.description
-                        "api_url": f"https://maps.googleapis.com/maps/api/js?key={GOOGLE_API_KEY}=initMap"
                         }
             else:
                 return {"response": "not a question"}
