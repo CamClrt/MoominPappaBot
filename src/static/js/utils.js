@@ -1,24 +1,36 @@
 // ---- function ---- //
 
 // display a new message at screen
+let mapIdCounter = 0;
+let mapId = "";
 export const addDiscussionElement = (discussionText, userType, map=false) => {
     const newDiscussionElement = document.createElement("div");
     if (map==false){
         newDiscussionElement.innerHTML = "<p>".concat(discussionText, "</p>");
     } else {
-        newDiscussionElement.setAttribute("id", "map");
+        mapIdCounter += 1;
+        mapId = "map".concat(mapIdCounter);
+        newDiscussionElement.setAttribute("id", mapId);
     };
     newDiscussionElement.classList.add(userType);
     let discussionElement = document.getElementById("discussion");
     discussionElement.appendChild(newDiscussionElement);
+    refreshDisplay()
+    return mapId;
 }
+
+// refresh sreen //
+export const refreshDisplay = () => {
+    const discussionElement = document.getElementById('discussion');
+    const coord = discussionElement.getBoundingClientRect();
+    window.scrollTo(0,coord['bottom'])
+};
 
 // send an HTTP request
 export const send = (input, url) => {
     const request = new XMLHttpRequest();
     request.open("POST", url, false);
     request.setRequestHeader("Content-Type", "application/json");
-    console.log(JSON.stringify({user_question: input}));
     request.send(JSON.stringify({user_question: input}));
 
     if (request.status == "200") {
@@ -28,8 +40,8 @@ export const send = (input, url) => {
 }
 
 // Initialize and add the map
-export const initMap = (placeLatitude, placeLongitude) => {
+export const initMap = (placeLatitude, placeLongitude, id) => {
     var place = {lat: placeLatitude, lng: placeLongitude};
-    var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: place});
+    var map = new google.maps.Map(document.getElementById(id), {zoom: 4, center: place});
     var marker = new google.maps.Marker({position: place, map: map});
 }

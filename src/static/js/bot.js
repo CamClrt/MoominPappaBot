@@ -42,8 +42,8 @@ export class Bot {
     }
 
     giveMapPlace(latitude, longitude) {
-        addDiscussionElement("", this.type, true)
-        initMap(latitude, longitude)
+        const mapId = addDiscussionElement("", this.type, true)
+        initMap(latitude, longitude, mapId)
     }
 
     notAQuestion() {
