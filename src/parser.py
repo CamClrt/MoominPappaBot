@@ -51,7 +51,7 @@ class Parser:
  
     def extract_location(self, sentence):
         """Parse sentence and extract location:
-        used this method suposed that you have already used the 3 methods:
+        to use this method suposed that you have already used the 3 methods:
         - remove_case_sensitive
         - remove_accents
         - remove_ponctuation
