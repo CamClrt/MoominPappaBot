@@ -33,12 +33,6 @@ class Parser:
         location_without_stop_words = self.remove_stop_words(location)
         return location_without_stop_words
 
-        """TODO:
-        1. tout transformer en minuscules (ou en maj) [OK]
-        2. éliminer les accents [OK]
-        3. extraire la question avec une expression rationnelle 
-        4. eventuellement éliminer les stop words (mais n'apporte pas grand chose)"""
-
     def remove_case_sensitive(self, sentence):
         """Parse sentence and remove case-sensitive"""
         return sentence.lower()
