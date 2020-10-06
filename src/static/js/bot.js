@@ -17,9 +17,7 @@ export class Bot {
 
     answer(question) {
         let botResponse = send(question, "/ask_question/");
-        if (botResponse.response == "not a question"){
-            this.notAQuestion();
-        } else if (botResponse.response == "nothing"){
+        if (botResponse.response == "nothing"){
             this.noAnswer();
         } else {
              // add name of the place
@@ -46,13 +44,8 @@ export class Bot {
         initMap(latitude, longitude, mapId)
     }
 
-    notAQuestion() {
-        const response = "Hum... Je ne suis pas sur que cette phrase soit réellement une question... Peux-tu reformuler ?";
-        addDiscussionElement(response, this.type);
-    }  
-
     noAnswer() {
-        const response = "Hum ! Il me reste tant de chose à découvrir... Je suis désolé, je ne connais pas ce lieu. N'hésites pas à vérifier son orthographe et s'il porte des majuscules !";
+        const response = "Hum ! Il me reste tant de chose à découvrir... Désolé, je ne connais pas ce lieu.";
         addDiscussionElement(response, this.type);
     }
 }

@@ -13,26 +13,23 @@ def index():
 
 @app.route('/ask_question/', methods=['POST'])
 def ask_question():
-    if request.method == 'POST':
-        if request.is_json:
-            json_question = request.get_json()
-            question = json_question["user_question"]
+    if request.is_json:
+        json_question = request.get_json()
+        question = json_question["user_question"]
+        parser = Parser()
+        place_object = parser.process_question(question)
 
-            parser = Parser()
-            if parser.check_question_mark(question):
-                place_object = parser.process_question(question)
-
-                if place_object == None:
-                    return {"response": "nothing"}
-                else:
-                    return {
-                        "response": place_object.name,
-                        "latitude": place_object.latitude,
-                        "longitude": place_object.longitude,
-                        "description": "vide", #TODO: à remplacer par place_object.description
-                        }
-            else:
-                return {"response": "not a question"}
+        if place_object == None:
+            return {"response": "nothing"}
+        else:
+            return {
+                "response": place_object.name,
+                "latitude": place_object.latitude,
+                "longitude": place_object.longitude,
+                "description": "vide", #TODO: à remplacer par place_object.description
+                }
+    else:
+        print("Only a JSON file is accepted")
 
 @app.errorhandler(404)
 def page_not_found(error):

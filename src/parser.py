@@ -16,13 +16,6 @@ class Parser:
         self.ponctuation = PUNCTUATION
         self.formulation = FORMULATION
 
-    def check_question_mark(self, sentence):
-        """Check if the sentence is a real question"""
-        if sentence.find('?') == -1:  # return the index of the substring or -1 
-            return False
-        else:
-            return True
-
     def process_question(self, sentence): 
         """Find named entities and filter them"""
         sentence_without_case_sensitive = self.remove_case_sensitive(sentence)
@@ -30,8 +23,7 @@ class Parser:
         sentence_without_ponctuation = self.remove_ponctuation(sentence_without_accents)
         normelized_sentence = sentence_without_ponctuation
         location = self.extract_location(normelized_sentence)
-        location_without_stop_words = self.remove_stop_words(location)
-        return location_without_stop_words
+        return location
 
     def remove_case_sensitive(self, sentence):
         """Parse sentence and remove case-sensitive"""
@@ -47,7 +39,16 @@ class Parser:
         for caracter in sentence:
             if caracter in self.ponctuation:
                 sentence_without_ponctuation = sentence_without_ponctuation.replace(caracter, "")
-        return sentence_without_ponctuation
+        return sentence_without_ponctuation.strip()
+    
+    def remove_stop_words(self, sentence):
+        """Parse location & remove stop words"""
+        sentence_without_stop_words = sentence.split()
+        for word in sentence.split():
+            if word in self.stop_words:
+                sentence_without_stop_words.remove(word)
+        res = " ".join(sentence_without_stop_words)
+        return res.strip()
  
     def extract_location(self, sentence):
         """Parse sentence and extract location:
@@ -61,17 +62,9 @@ class Parser:
             formulation_without_accents = self.remove_accents(formulation_without_case_sensitive)
             formulation_without_ponctuation = self.remove_ponctuation(formulation_without_accents)
             normelized_formulation = formulation_without_ponctuation
-            normelized_formulation_regex = f"{normelized_formulation}.*?[\?]"
+            normelized_formulation_regex = f"{normelized_formulation}.*"
             if re.search(normelized_formulation_regex, sentence):
                 extract = re.search(normelized_formulation_regex, sentence)
-                location = extract.group().replace("?", "").replace(normelized_formulation, "")
-        return location.strip()
-
-    def remove_stop_words(self, location):
-        """Parse location & remove stop words"""
-        location_without_stop_words = location.split()
-        for word in location.split():
-            if word in self.stop_words:
-                location_without_stop_words.remove(word)
-        res = " ".join(location_without_stop_words)
-        return res.strip()
+                location_with_stop_words = extract.group().replace(normelized_formulation, "")
+                location_without_stop_words = self.remove_stop_words(location_with_stop_words)
+                return location_without_stop_words.strip()
