@@ -9,7 +9,7 @@ import requests
 def test_get_localisation_success(monkeypatch):
     """
     GIVEN a monkeypatched version of requests.get()
-    WHEN the HTTP repsonse is set to successful
+    WHEN the HTTP response is set to successful
     THEN check the HTTP response
     """
     
@@ -96,7 +96,7 @@ def test_get_localisation_success(monkeypatch):
 def test_get_localisation_failure(monkeypatch):
     """
     GIVEN a monkeypatched version of requests.get()
-    WHEN the HTTP repsonse is set to failed
+    WHEN the HTTP response is set to failed
     THEN check the HTTP response
     """
     
