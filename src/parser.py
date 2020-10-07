@@ -3,6 +3,8 @@
 """
 
 from src.place import Place
+from src.models.google_api import GoogleGeocodingApi
+#from src.models.wikimedia_api import ???
 from config import STOP_WORDS, PUNCTUATION, FORMULATION
 import unidecode
 import re
@@ -15,6 +17,20 @@ class Parser:
         self.stop_words = STOP_WORDS
         self.ponctuation = PUNCTUATION
         self.formulation = FORMULATION
+    
+    def define_place(self, sentence):
+        """process question and return a place object"""
+        location = self.process_question(sentence)
+        place_object = None
+        if location != None:
+            place_object = Place()
+            google_api = GoogleGeocodingApi(location)
+            if google_api.latitude != None and google_api.longitude != None:
+                place_object.latitude = google_api.latitude
+                place_object.longitude = google_api.longitude
+                #wikimedia part
+                #si aucun coordonnées alors référencer place_object par None
+        return place_object
 
     def process_question(self, sentence): 
         """Find named entities and filter them"""

@@ -42,6 +42,6 @@ export const send = (input, url) => {
 // Initialize and add the map
 export const initMap = (placeLatitude, placeLongitude, id) => {
     var place = {lat: placeLatitude, lng: placeLongitude};
-    var map = new google.maps.Map(document.getElementById(id), {zoom: 4, center: place});
+    var map = new google.maps.Map(document.getElementById(id), {zoom: 10, center: place});
     var marker = new google.maps.Marker({position: place, map: map});
 }

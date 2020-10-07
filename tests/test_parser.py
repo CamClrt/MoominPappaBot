@@ -3,6 +3,8 @@
 """
 
 from src.parser import Parser
+from src.place import Place
+
 
 class TestParser:
     PARSER = Parser()
@@ -34,3 +36,4 @@ class TestParser:
     def test_process_question(self):
         sentence = "Bonjour Moominpappa! Où est Moomin World ? Hein? Alors, je t'écoute !"
         assert self.PARSER.process_question(sentence) == "moomin world tecoute"
+    

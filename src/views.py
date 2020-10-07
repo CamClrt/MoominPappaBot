@@ -16,17 +16,15 @@ def ask_question():
     if request.is_json:
         json_question = request.get_json()
         question = json_question["user_question"]
-        parser = Parser()
-        place_object = parser.process_question(question)
+        place_object = parser.define_place(question)
 
         if place_object == None:
             return {"response": "nothing"}
         else:
             return {
-                "response": place_object.name,
                 "latitude": place_object.latitude,
                 "longitude": place_object.longitude,
-                "description": "vide", #TODO: à remplacer par place_object.description
+                "description": place_object.description,
                 }
     else:
         print("Only a JSON file is accepted")

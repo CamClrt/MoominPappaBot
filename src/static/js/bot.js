@@ -20,18 +20,11 @@ export class Bot {
         if (botResponse.response == "nothing"){
             this.noAnswer();
         } else {
-             // add name of the place
-            this.giveTheNamePlace(botResponse.response)
             // add short description
             this.giveTheDescriptionPlace(botResponse.description)
             // add map to locate the place
             this.giveMapPlace(botResponse.latitude, botResponse.longitude)
         }
-    } 
-
-    giveTheNamePlace(name) {
-        const message = "Oh bien sur ! Tu veux parler de "
-        addDiscussionElement(message.concat(name, " !"), this.type);
     }
 
     giveTheDescriptionPlace(description) {
@@ -45,7 +38,7 @@ export class Bot {
     }
 
     noAnswer() {
-        const response = "Hum ! Il me reste tant de chose à découvrir... Désolé, je ne connais pas ce lieu.";
+        const response = "Hum ! Il me reste tant de chose à découvrir... Je ne suis pas sûr de la réponse, pourrais-tu peut-être reformuler ta question ?";
         addDiscussionElement(response, this.type);
     }
 }
