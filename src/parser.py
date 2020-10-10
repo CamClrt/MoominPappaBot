@@ -57,7 +57,7 @@ class Parser:
         for caracter in sentence:
             if caracter in self.ponctuation:
                 sentence_without_ponctuation = sentence_without_ponctuation.replace(caracter, "")
-        return sentence_without_ponctuation.strip()
+        return sentence_without_ponctuation.replace("-", " ").strip()
     
     def remove_stop_words(self, sentence):
         """Parse location & remove stop words"""

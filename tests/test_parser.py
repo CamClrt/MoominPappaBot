@@ -18,7 +18,7 @@ class TestParser:
         assert self.PARSER.remove_accents("Emmène-moi à Moomin World ?") == "Emmene-moi a Moomin World ?"
 
     def test_remove_ponctuation(self):
-        assert self.PARSER.remove_ponctuation("Bonjour, emmène-moi à Moomin World ?") == "Bonjour emmène-moi à Moomin World"
+        assert self.PARSER.remove_ponctuation("Bonjour, emmène-moi à Moomin World ?") == "Bonjour emmène moi à Moomin World"
 
     def test_remove_stop_words(self):
         assert self.PARSER.remove_stop_words("aux Pays des Moomins") == "Pays Moomins"
