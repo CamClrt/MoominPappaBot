@@ -3,13 +3,7 @@
 """
 
 import requests
-#from config import MEDIAWIKI_API_URL, DATE, APP_NAME
-
-MEDIAWIKI_API_URL = "http://fr.wikipedia.org/w/api.php?"
-APP_NAME = "MoominPappaBot/1"
-from datetime import datetime
-date = datetime.now()
-DATE = date.__str__()[:19]
+from config import MEDIAWIKI_API_URL, DATE, APP_NAME
 
 
 class MediawikiApi():
