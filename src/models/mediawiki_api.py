@@ -82,9 +82,3 @@ class MediawikiApi():
         else:
             err = f"Mediawiki API error : '{response.status_code}' error occurred"
             print(err)
-
-
-api = MediawikiApi(60.47347029999999,22.0053239)
-print(api.title)
-print(api.description)
-print(api.url)
