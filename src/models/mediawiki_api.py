@@ -13,25 +13,26 @@ class MediawikiApi():
         self.api_url = MEDIAWIKI_API_URL
         self.latitude = latitude
         self.longitude = longitude
+        self.content = self.get_data()
 
     
     @property
     def title(self):
         """Import data from API and give title"""
-        if self.get_data() != None:
-            return self.get_data().get("title")
+        if self.content != None:
+            return self.content.get("title")
     
     @property
     def description(self):
         """Import data from API and give description"""
-        if self.get_data() != None:
-            return self.get_data().get("extract")
+        if self.content != None:
+            return self.content.get("extract")
 
     @property
     def url(self):
         """Import data from API and give url"""
-        if self.get_data() != None:
-            return self.get_data().get("fullurl") 
+        if self.content != None:
+            return self.content.get("fullurl") 
 
     def get_data(self):
         """Import data from WikiMediaApi and return them as dictionnary"""

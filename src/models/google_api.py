@@ -13,23 +13,24 @@ class GoogleGeocodingApi():
         self.key = GEOCODING_API_KEY
         self.location = location
         self.api_url = None
+        self.content = self.get_localisation()
     
 
     @property
     def latitude(self):
         """Import data from API and give latitude"""
-        if self.get_localisation() != None:
-            return self.get_localisation().get("lat")
+        if self.content != None:
+            return self.content.get("lat")
     
     @property
     def longitude(self):
         """Import data from API and give longitude"""
-        if self.get_localisation() != None:
-            return self.get_localisation().get("lng")
+        if self.content != None:
+            return self.content.get("lng")
 
     def set_url(self):
         """When GoogleGeocodingApi object is created, a customized url is generated"""
-        self.url = GEOCODING_API_URL.replace("LOCATION", self.location).replace("KEY", self.key)
+        self.api_url = GEOCODING_API_URL.replace("LOCATION", self.location).replace("KEY", self.key)
     
     def get_localisation(self):
         """Import latitude & longitude from the Google API"""
