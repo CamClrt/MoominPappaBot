@@ -12,8 +12,9 @@ class GoogleGeocodingApi():
     def __init__(self, location):
         self.key = GEOCODING_API_KEY
         self.location = location
-        self.url = None
+        self.api_url = None
     
+
     @property
     def latitude(self):
         """Import data from API and give latitude"""
@@ -35,13 +36,13 @@ class GoogleGeocodingApi():
         self.set_url()
         
         headers = {'date': DATE, 'user-agent': APP_NAME}
-        response = requests.get(self.url, headers=headers, timeout=10)
+        response = requests.get(self.api_url, headers=headers, timeout=10)
         if response.status_code == 200:
             content = response.json()
             if content.get("status") == "OK":
                 return content.get("results")[0].get("geometry").get("location")
             else:
-                print("API error : status not OK")
+                print("Google API error : status not OK")
         else:
-            err = f"API error : '{response.status_code}' error occurred"
+            err = f"Google API error : '{response.status_code}' error occurred"
             print(err)

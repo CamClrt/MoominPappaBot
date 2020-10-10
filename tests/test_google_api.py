@@ -82,6 +82,7 @@ def test_get_localisation_success(monkeypatch):
                 }
 
     headers = {'date': "07/10/2020", 'user-agent': '"MoominPappaBot/fake_version'}
+    
     def mock_get(url, headers=headers, timeout=10):
         return MockResponse()
     
@@ -109,6 +110,7 @@ def test_get_localisation_failure(monkeypatch):
             return {'error': 'bad'}
 
     headers = {'date': "07/10/2020", 'user-agent': '"MoominPappaBot/fake_version'}
+
     def mock_get(url, headers=headers, timeout=10):
         return MockResponse()
     
