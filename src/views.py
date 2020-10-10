@@ -22,9 +22,11 @@ def ask_question():
             return {"response": "nothing"}
         else:
             return {
+                "name": place_object.name,
                 "latitude": place_object.latitude,
                 "longitude": place_object.longitude,
                 "description": place_object.description,
+                "url": place_object.url,
                 }
     else:
         print("Only a JSON file is accepted")

@@ -4,7 +4,7 @@
 
 from src.place import Place
 from src.models.google_api import GoogleGeocodingApi
-#from src.models.wikimedia_api import ???
+from src.models.mediawiki_api import MediawikiApi
 from config import STOP_WORDS, PUNCTUATION, FORMULATION
 import unidecode
 import re
@@ -28,8 +28,10 @@ class Parser:
             if google_api.latitude != None and google_api.longitude != None:
                 place_object.latitude = google_api.latitude
                 place_object.longitude = google_api.longitude
-                #wikimedia part
-                #si aucun coordonnées alors référencer place_object par None
+                mediawiki_api = MediawikiApi(google_api.latitude, google_api.longitude)
+                place_object.name = mediawiki_api.title
+                place_object.description = mediawiki_api.description
+                place_object.url = mediawiki_api.url
         return place_object
 
     def process_question(self, sentence): 
