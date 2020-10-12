@@ -21,11 +21,17 @@ export class Bot {
             this.noAnswer();
         } else {
             // add short description
-            this.giveTheDescriptionPlace(botResponse.description)
+            if (botResponse.description != "") {
+                this.giveTheDescriptionPlace(botResponse.description)
+            }
             // add map to locate the place
-            this.giveMapPlace(botResponse.latitude, botResponse.longitude)
+            if ((botResponse.latitude, botResponse.longitude) != ("", "")) {
+                this.giveMapPlace(botResponse.latitude, botResponse.longitude)
+            }
             // add wikipedia url
+            if (botResponse.url != "") {
             this.giveUrl(botResponse.url)
+            }
         }
     }
 
