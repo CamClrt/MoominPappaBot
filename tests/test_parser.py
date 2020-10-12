@@ -36,22 +36,6 @@ class TestParser:
 
     # TEST D'INTEGRATION
 
-    def test_extract_location(self):
-        sentence = "Bonjour! Emmène-moi à Moomin World."
-        sentence_without_case_sensitive = self.PARSER.remove_case_sensitive(
-            sentence
-        )
-        sentence_without_accents = self.PARSER.remove_accents(
-            sentence_without_case_sensitive
-        )
-        sentence_without_ponctuation = self.PARSER.remove_ponctuation(
-            sentence_without_accents
-        )
-        normelized_sentence = sentence_without_ponctuation
-        assert (
-            self.PARSER.extract_location(normelized_sentence) == "moomin world"
-        )
-
     def test_process_question(self):
-        sentence = "Bonjour! Où est Moomin World ? Hein? Alors, je t'écoute !"
+        sentence = "Où est Moomin World ? Hein? Alors, je t'écoute !"
         assert self.PARSER.process_question(sentence) == "moomin world tecoute"

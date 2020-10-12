@@ -628,23 +628,6 @@ STOP_WORDS = [
 
 PUNCTUATION = ["'", '"', ",", ".", "!", ":", ";", "?"]
 
-FORMULATION = [
-    "Où est",
-    "Où se situe",
-    "Où se trouve",
-    "Où est localisé",
-    "Emmène-moi à",
-    "Comment me rendre à",
-    "Comment se rendre à",
-    "Comment aller à",
-    "Comment vais-je",
-    "Comment je vais",
-    "Parle-moi de",
-    "Comment aller",
-    "Qu'est-ce qu'est",
-    "Qu'est-ce que",
-]
-
 # API headers
 
 APP_NAME = "MoominPappaBot/1"
