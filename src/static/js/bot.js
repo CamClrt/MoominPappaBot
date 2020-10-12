@@ -24,6 +24,8 @@ export class Bot {
             this.giveTheDescriptionPlace(botResponse.description)
             // add map to locate the place
             this.giveMapPlace(botResponse.latitude, botResponse.longitude)
+            // add wikipedia url
+            this.giveUrl(botResponse.url)
         }
     }
 
@@ -33,8 +35,12 @@ export class Bot {
     }
 
     giveMapPlace(latitude, longitude) {
-        const mapId = addDiscussionElement("", this.type, true)
+        const mapId = addDiscussionElement("", this.type, "map")
         initMap(latitude, longitude, mapId)
+    }
+
+    giveUrl(url) {
+        addDiscussionElement(url, this.type, "url");
     }
 
     noAnswer() {

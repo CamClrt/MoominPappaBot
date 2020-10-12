@@ -3,14 +3,17 @@
 // display a new message at screen
 let mapIdCounter = 0;
 let mapId = "";
-export const addDiscussionElement = (discussionText, userType, map=false) => {
+export const addDiscussionElement = (text, userType, dataType="text") => {
     const newDiscussionElement = document.createElement("div");
-    if (map==false){
-        newDiscussionElement.innerHTML = "<p>".concat(discussionText, "</p>");
-    } else {
+    if (dataType=="url"){
+        newDiscussionElement.innerHTML = "<p><a href=".concat(text, " target='_blank'>[En savoir plus sur Wikipedia]</a></p>");
+    }
+    else if (dataType=="map"){
         mapIdCounter += 1;
         mapId = "map".concat(mapIdCounter);
         newDiscussionElement.setAttribute("id", mapId);
+    } else {
+        newDiscussionElement.innerHTML = "<p>".concat(text, "</p>");
     };
     newDiscussionElement.classList.add(userType);
     let discussionElement = document.getElementById("discussion");
