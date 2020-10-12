@@ -7,7 +7,7 @@ The aim of this project is to develop a chatbot to inform users about a location
 
 Follow [this link](http://moominpappa-bot.herokuapp.com/) to use the application and enjoy it !
 
-![Home_picture](https://github.com/CamClrt/MoominPappaBot/tree/master/src/static/img/example.png)
+![Home_picture](https://github.com/CamClrt/MoominPappaBot/blob/master/src/static/img/example.png)
 
 ## Made with
 
