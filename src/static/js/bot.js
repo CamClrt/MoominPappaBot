@@ -50,7 +50,7 @@ export class Bot {
     }
 
     noAnswer() {
-        const response = "Hum ! Il me reste tant de chose à découvrir... Je ne suis pas sûr de la réponse, pourrais-tu peut-être reformuler ta question ?";
+        const response = "Hum ! Il me reste tant de chose à découvrir... Je ne suis pas sûr de la réponse, tu pourrais peut-être reformuler ta question ?";
         addDiscussionElement(response, this.type);
     }
 }
