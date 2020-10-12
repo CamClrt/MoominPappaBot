@@ -658,4 +658,4 @@ GEOCODING_API_URL = "https://maps.googleapis.com/maps/api/geocode/json"
 
 # mediaWiki API
 
-MEDIAWIKI_API_URL = "http://fr.wikipedia.org/w/api.php?"
+MEDIAWIKI_API_URL = "http://fr.wikipedia.org/w/api.php"
