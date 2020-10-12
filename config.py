@@ -30,3 +30,7 @@ DATE = date.__str__()[:19]
 
 GEOCODING_API_KEY = os.getenv("GEOCODING_API_KEY")
 GEOCODING_API_URL = "https://maps.googleapis.com/maps/api/geocode/json?address=LOCATION&key=KEY"
+
+#################### mediaWiki API ####################
+
+MEDIAWIKI_API_URL = "http://fr.wikipedia.org/w/api.php?"
