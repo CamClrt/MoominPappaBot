@@ -21,7 +21,7 @@ export class Bot {
             this.noAnswer();
         } else {
             // add short description
-            if (botResponse.description != "") {
+            if (botResponse.description != "Hum ! Il me reste tant de chose à découvrir...") {
                 this.giveTheDescriptionPlace(botResponse.description)
             }
             // add map to locate the place
