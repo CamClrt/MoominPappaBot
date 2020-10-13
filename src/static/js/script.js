@@ -12,10 +12,12 @@ const greetUser = () => {
 
 greetUser()
 
-const buttonElement = document.getElementById("button");
-buttonElement.addEventListener('click', buttonEvent => {
-    const userInputElement = document.getElementById("user_question");
-    userInputElement.addEventListener('change', inputEvent => {
+// ask question
+const userInputElement = document.getElementById("user_question");
+
+userInputElement.addEventListener('change', inputEvent => {
+    const buttonElement = document.getElementById("button");
+    buttonElement.addEventListener('click', buttonEvent => {
         let user = new User();
         let bot = new Bot();
         let question = user.askQuestion(inputEvent);
@@ -24,7 +26,7 @@ buttonElement.addEventListener('click', buttonEvent => {
     })
 })
 
-const userInputElement = document.getElementById("user_question");
+
 userInputElement.addEventListener("keyup", event => {
   if (event.keyCode === 13) {
     let user = new User();

@@ -30,7 +30,7 @@ export const addDiscussionElement = (text, userType, dataType="text") => {
 
 // refresh sreen //
 export const refreshDisplay = () => {
-    const userQuestionElement = document.getElementById('user_question');
+    const userQuestionElement = document.getElementById('discussion');
     const coord = userQuestionElement.getBoundingClientRect();
     window.scrollTo(0,coord['bottom'])
 };
