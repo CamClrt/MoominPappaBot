@@ -24,8 +24,7 @@ export class Bot {
             if (botResponse.description != "") {
                 this.giveTheDescriptionPlace(botResponse.description)
             } else {
-                let message = "Hum ! Il me reste tant de chose à découvrir...";
-                this.giveTheDescriptionPlace(message)
+                this.noAnswer()
             }
             // add map to locate the place
             if ((botResponse.latitude, botResponse.longitude) != ("", "")) {
@@ -53,7 +52,7 @@ export class Bot {
     }
 
     noAnswer() {
-        const response = "Hum ! Il me reste tant de chose à découvrir... Je ne suis pas sûr de la réponse, tu pourrais peut-être reformuler ta question ?";
+        const response = "Hum ! Il me reste tant de chose à découvrir...";
         addDiscussionElement(response, this.type);
     }
 }
