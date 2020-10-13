@@ -3,20 +3,34 @@ import {Bot} from './bot.js';
 
 // ---- main script ---- //
 
-let bot = new Bot();
-let user = new User();
-
 // greet user
-let message = "Bonjour à toi aventurier ! Sur quel lieu souhaites-tu m'interroger ?";
-bot.greetUser(message);
+const greetUser = () => {
+    let bot = new Bot();
+    let message = "Bonjour à toi aventurier ! Sur quel lieu souhaites-tu m'interroger ?";
+    bot.greetUser(message);
+}
 
-// user ask a question
+greetUser()
+
+const buttonElement = document.getElementById("button");
+buttonElement.addEventListener('click', buttonEvent => {
+    const userInputElement = document.getElementById("user_question");
+    userInputElement.addEventListener('change', inputEvent => {
+        let user = new User();
+        let bot = new Bot();
+        let question = user.askQuestion(inputEvent);
+        user.summitQuestionToBot(question, bot);
+        question = "";
+    })
+})
+
 const userInputElement = document.getElementById("user_question");
-userInputElement.addEventListener('change', function(event) {
+userInputElement.addEventListener("keyup", event => {
+  if (event.keyCode === 13) {
+    let user = new User();
+    let bot = new Bot();
     let question = user.askQuestion(event);
-    const buttonElement = document.getElementById("button");
-        buttonElement.addEventListener("click", function(){
-            user.summitQuestionToBot(question, bot);
-            question = "";
-        })
+    user.summitQuestionToBot(question, bot);
+    question = "";
+  }
 })
