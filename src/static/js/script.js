@@ -26,7 +26,6 @@ userInputElement.addEventListener('change', inputEvent => {
     })
 })
 
-
 userInputElement.addEventListener("keyup", event => {
   if (event.keyCode === 13) {
     let user = new User();
