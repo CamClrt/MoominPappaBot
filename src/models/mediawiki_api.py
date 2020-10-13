@@ -52,7 +52,7 @@ class MediawikiApi:
 
         headers = {"date": DATE, "user-agent": APP_NAME}
         response = requests.get(
-            self.api_url, params=parameters, headers=headers, timeout=10
+            self.api_url, params=parameters, headers=headers, timeout=3
         )
 
         if response.status_code == 200:
