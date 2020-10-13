@@ -21,8 +21,11 @@ export class Bot {
             this.noAnswer();
         } else {
             // add short description
-            if (botResponse.description != "Hum ! Il me reste tant de chose à découvrir...") {
+            if (botResponse.description != "") {
                 this.giveTheDescriptionPlace(botResponse.description)
+            } else {
+                let message = "Hum ! Il me reste tant de chose à découvrir...";
+                this.giveTheDescriptionPlace(message)
             }
             // add map to locate the place
             if ((botResponse.latitude, botResponse.longitude) != ("", "")) {
