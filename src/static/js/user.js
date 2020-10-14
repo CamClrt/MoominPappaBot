@@ -1,9 +1,9 @@
-import {addDiscussionElement} from './utils.js';
+import {addDiscussionElement} from "./utils.js";
 
 // ---- user class ---- //
 
 export class User {
-    constructor(){
+    constructor() {
         this.type = "user";
     }
 
@@ -12,8 +12,8 @@ export class User {
         return question;
     }
 
-    summitQuestionToBot(question, botObject){
-        if(question != "") {
+    summitQuestionToBot(question, botObject) {
+        if(question !== "") {
             addDiscussionElement(question, this.type);
             botObject.answer(question);
             let userInputElement = document.getElementById("user_question");
@@ -21,5 +21,3 @@ export class User {
         }
     }
 }
-
-

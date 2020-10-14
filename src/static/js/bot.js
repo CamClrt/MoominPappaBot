@@ -1,11 +1,11 @@
-import {addDiscussionElement} from './utils.js';
-import {send} from './utils.js';
-import {initMap} from './utils.js';
+import {addDiscussionElement} from "./utils.js";
+import {send} from "./utils.js";
+import {initMap} from "./utils.js";
 
 // ---- bot class ---- //
 
 export class Bot {
-    constructor(){
+    constructor() {
         this.type = "bot";
     }
 

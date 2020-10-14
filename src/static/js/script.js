@@ -1,23 +1,23 @@
-import {User} from './user.js';
-import {Bot} from './bot.js';
+import {User} from "./user.js";
+import {Bot} from "./bot.js";
 
 // ---- main script ---- //
 
 // greet user
-const greetUser = () => {
+function greetUser() {
     let bot = new Bot();
-    let message = "Bonjour à toi aventurier ! Sur quel lieu souhaites-tu m'interroger ?";
+    let message = ("Bonjour à toi aventurier! Sur quel lieu souhaites-tu m'interroger ?");
     bot.greetUser(message);
 }
 
-greetUser()
+greetUser();
 
 // ask question
 const userInputElement = document.getElementById("user_question");
 
-userInputElement.addEventListener('change', inputEvent => {
+userInputElement.addEventListener("change", inputEvent => {
     const buttonElement = document.getElementById("button");
-    buttonElement.addEventListener('click', buttonEvent => {
+    buttonElement.addEventListener("click", buttonEvent => {
         let user = new User();
         let bot = new Bot();
         let question = user.askQuestion(inputEvent);

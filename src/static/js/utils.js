@@ -3,15 +3,15 @@
 // display a new message at screen
 let mapIdCounter = 0;
 let mapId = "";
-export const addDiscussionElement = (text, userType, dataType="text") => {
+export function addDiscussionElement(text, userType, dataType="text") {
     const newDiscussionElement = document.createElement("div");
     const newParagraphBlock = document.createElement("p");
     newDiscussionElement.appendChild(newParagraphBlock);
     if (dataType=="url"){
         const newUrlElement = document.createElement("a");
         newParagraphBlock.appendChild(newUrlElement);
-        newUrlElement.setAttribute("href", text)
-        newUrlElement.setAttribute("target", "_blank")
+        newUrlElement.setAttribute("href", text);
+        newUrlElement.setAttribute("target", "_blank");
         newUrlElement.textContent = "[En savoir plus sur Wikipedia]";
     }
     else if (dataType=="map"){
@@ -20,23 +20,23 @@ export const addDiscussionElement = (text, userType, dataType="text") => {
         newDiscussionElement.setAttribute("id", mapId);
     } else {
         newParagraphBlock.textContent = text;    
-    };
+    }
     newDiscussionElement.classList.add(userType);
     let discussionElement = document.getElementById("discussion");
     discussionElement.appendChild(newDiscussionElement);
-    refreshDisplay()
+    refreshDisplay();
     return mapId;
 }
 
 // refresh sreen //
-export const refreshDisplay = () => {
+export function refreshDisplay() {
     const userQuestionElement = document.getElementById("user_question");
     const coord = userQuestionElement.getBoundingClientRect();
     window.scrollTo(0,coord['bottom'])
-};
+}
 
 // send an HTTP request
-export const send = (input, url) => {
+export function send(input, url) {
     const request = new XMLHttpRequest();
     request.open("POST", url, false);
     request.setRequestHeader("Content-Type", "application/json");
@@ -49,7 +49,7 @@ export const send = (input, url) => {
 }
 
 // Initialize and add the map
-export const initMap = (placeLatitude, placeLongitude, id) => {
+export function initMap(placeLatitude, placeLongitude, id) {
     var place = {lat: placeLatitude, lng: placeLongitude};
     var map = new google.maps.Map(document.getElementById(id), {zoom: 10, center: place});
     var marker = new google.maps.Marker({position: place, map: map});
