@@ -1,23 +1,23 @@
-import {addDiscussionElement} from "./utils.js";
+import { addDiscussionElement } from './utils.js'
 
 // ---- user class ---- //
 
 export class User {
-    constructor() {
-        this.type = "user";
-    }
+  constructor () {
+    this.type = 'user'
+  }
 
-    askQuestion(event) {
-        let question = event.target.value;
-        return question;
-    }
+  askQuestion (event) {
+    const question = event.target.value
+    return question
+  }
 
-    summitQuestionToBot(question, botObject) {
-        if(question !== "") {
-            addDiscussionElement(question, this.type);
-            botObject.answer(question);
-            let userInputElement = document.getElementById("user_question");
-            userInputElement.value = "";
-        }
+  summitQuestionToBot (question, botObject) {
+    if (question !== '') {
+      addDiscussionElement(question, this.type)
+      botObject.answer(question)
+      const userInputElement = document.getElementById('user_question')
+      userInputElement.value = ''
     }
+  }
 }
