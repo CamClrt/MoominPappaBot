@@ -6,7 +6,7 @@ import { Bot } from './bot.js'
 // greet user
 function greetUser () {
   const bot = new Bot()
-  const message = ('Bonjour à toi aventurier! Sur quel lieu souhaites-tu m\'interroger ?')
+  const message = ('Bonjour à toi aventurier ! Sur quel lieu souhaites-tu m\'interroger ?')
   bot.greetUser(message)
 }
 

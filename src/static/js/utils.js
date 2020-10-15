@@ -29,9 +29,8 @@ export function addDiscussionElement (text, userType, dataType = 'text') {
 
 // refresh sreen //
 export function refreshDisplay () {
-  const userQuestionElement = document.getElementById('user_question')
-  const coord = userQuestionElement.getBoundingClientRect()
-  window.scrollTo(0, coord[' bottom '])
+  const socialElement = document.getElementById('social_media')
+  socialElement.scrollIntoView()
 }
 
 // send an HTTP request
